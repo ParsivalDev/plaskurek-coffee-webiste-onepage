@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: "Płaskurek <onboarding@resend.dev>",
+      from: "NOWA REZERWACJA w Płaskurek <rezerwacja@plaskurekcoffee.pl>",
       to: "plaskurek@o2.pl",
       subject: `Zapytanie eventowe od ${name}`,
       replyTo: email,
