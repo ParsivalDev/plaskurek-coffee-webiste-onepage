@@ -38,14 +38,36 @@ const packages = [
 ];
 
 export default function Events() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+    "idle"
+  );
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSent(true);
+    setStatus("loading");
+
     const form = event.currentTarget;
-    form.reset();
-    setTimeout(() => setSent(false), 2400);
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        setStatus("error");
+        return;
+      }
+
+      form.reset();
+      setStatus("success");
+      setTimeout(() => setStatus("idle"), 2400);
+    } catch (error) {
+      setStatus("error");
+    }
   };
 
   return (
@@ -131,17 +153,26 @@ export default function Events() {
             />
             <button
               type="submit"
-              className="focus-ring w-full rounded-full bg-[color:var(--brown-900)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--brown-700)]"
+              disabled={status === "loading"}
+              className="focus-ring w-full rounded-full bg-[color:var(--brown-900)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--brown-700)] disabled:cursor-not-allowed disabled:opacity-70"
             >
-              Wyslij zapytanie
+              {status === "loading" ? "Wysylanie..." : "Wyslij zapytanie"}
             </button>
           </form>
-          {sent && (
+          {status === "success" && (
             <div
               role="status"
               className="mt-4 rounded-xl bg-[color:var(--wheat-100)] px-4 py-3 text-sm text-[color:var(--brown-900)]"
             >
-              Wyslano (demo)
+              Wyslano. Odezwiemy sie wkrotce!
+            </div>
+          )}
+          {status === "error" && (
+            <div
+              role="alert"
+              className="mt-4 rounded-xl bg-[color:rgba(74,53,36,0.08)] px-4 py-3 text-sm text-[color:var(--brown-900)]"
+            >
+              Nie udalo sie wyslac. Sprobuj ponownie pozniej.
             </div>
           )}
         </div>
