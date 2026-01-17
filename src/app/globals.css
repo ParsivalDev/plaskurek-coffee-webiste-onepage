@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --wheat-50: #fbf6ee;
+  --wheat-100: #f2e7d3;
+  --wheat-300: #d8b776;
+  --wheat-500: #b28749;
+  --green-muted: #7a7a55;
+  --brown-700: #4a3524;
+  --brown-900: #2c2016;
+  --coffee: #3b2a1e;
+  --sand: #efe4d1;
+}
+
+* {
+  scroll-margin-top: 96px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+  color: var(--brown-700);
+  background-color: var(--wheat-50);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+.page-bg {
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(216, 183, 118, 0.18), transparent 35%),
+    radial-gradient(circle at 90% 15%, rgba(122, 122, 85, 0.12), transparent 40%),
+    linear-gradient(180deg, rgba(251, 246, 238, 1) 0%, rgba(239, 228, 209, 1) 100%);
+}
+
+.grainy {
+  position: relative;
+}
+
+.grainy::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.noise-soft::after {
+  opacity: 0.08;
+}
+
+.section-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(178, 135, 73, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.text-shadow {
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(216, 183, 118, 0.6);
+}
