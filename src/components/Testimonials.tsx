@@ -46,7 +46,7 @@ function Stars({ rating }: { rating: number }) {
 
 export default function Testimonials() {
   return (
-    <Section id="opinie" title="Opinie, ktore zostaja" subtitle="Opinie">
+    <Section id="opinie" title="Opinie o naszej piekarni" subtitle="Opinie">
       <div className="grid gap-6 md:grid-cols-2">
         {testimonials.map((testimonial) => (
           <div
