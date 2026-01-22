@@ -7,7 +7,6 @@ import Section from "@/components/Section";
 const packages = [
   {
     name: "Basic",
-    price: "od 900 zl",
     features: [
       "Strefa na 2h",
       "Napoje i kawa",
@@ -16,7 +15,6 @@ const packages = [
   },
   {
     name: "Standard",
-    price: "od 1800 zl",
     features: [
       "Rezerwacja na 3h",
       "Cieple danie dnia",
@@ -26,7 +24,6 @@ const packages = [
   },
   {
     name: "Premium",
-    price: "od 3200 zl",
     features: [
       "Prywatna sala",
       "Menu degustacyjne",
@@ -91,6 +88,17 @@ export default function Events() {
               Dziękujemy, że jesteś z nami. Już dopinamy ostatnie szczegóły i
               nie możemy się doczekać Twojej pierwszej kawy.
             </p>
+            <p className="mt-3 text-sm text-[color:var(--brown-700)]">
+              Zajrzyj na nasz fanpage na Facebooku, żeby być na bieżąco:
+              <a
+                href="https://www.facebook.com/profile.php?id=61586080679602"
+                target="_blank"
+                rel="noreferrer"
+                className="ml-2 inline-flex items-center rounded-full bg-[color:var(--wheat-100)] px-3 py-1 text-sm font-semibold text-[color:var(--brown-900)] shadow-soft transition hover:-translate-y-0.5 hover:bg-[color:var(--wheat-300)]"
+              >
+                facebook.com/plaskurek
+              </a>
+            </p>
             <button
               type="button"
               onClick={() => setIsPopupOpen(false)}
@@ -124,9 +132,6 @@ export default function Events() {
                   <h3 className="text-lg font-semibold text-[color:var(--brown-900)]">
                     {pkg.name}
                   </h3>
-                  <p className="mt-2 text-sm font-semibold text-[color:var(--wheat-500)]">
-                    {pkg.price}
-                  </p>
                   <ul className="mt-4 space-y-2 text-sm text-[color:var(--brown-700)]">
                     {pkg.features.map((feature) => (
                       <li key={feature}>• {feature}</li>
