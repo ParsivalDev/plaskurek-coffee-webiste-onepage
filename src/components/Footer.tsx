@@ -4,7 +4,6 @@ const links = [
   { id: "menu", label: "Menu" },
   { id: "przestrzen", label: "Przestrzen" },
   { id: "eventy", label: "Eventy" },
-  { id: "opinie", label: "Opinie" },
   { id: "kontakt", label: "Kontakt" },
 ];
 

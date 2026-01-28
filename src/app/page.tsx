@@ -4,7 +4,6 @@ import Section from "@/components/Section";
 import Menu from "@/components/Menu";
 import Space from "@/components/Space";
 import Events from "@/components/Events";
-import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SeasonalStrip from "@/components/SeasonalStrip";
@@ -23,7 +22,6 @@ export default function HomePage() {
         </Section>
         <Space />
         <Events />
-        <Testimonials />
         <Contact />
       </main>
       <Footer />
