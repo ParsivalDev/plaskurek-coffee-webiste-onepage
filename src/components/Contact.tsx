@@ -29,7 +29,6 @@ export default function Contact() {
               <p className="text-xs uppercase tracking-[0.2em] text-[color:var(--green-muted)]">
                 Kontakt
               </p>
-              <p className="mt-2">+48 602 122 673</p>
               <p>plaskurekcoffee@o2.pl</p>
             </div>
           </div>
