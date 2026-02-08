@@ -6,76 +6,50 @@ import { cn } from "@/lib/utils";
 
 const categories = [
   {
-    id: "wypieki",
-    label: "Wypieki",
+    id: "chleb",
+    label: "Chleb",
     items: [
       {
-        name: "Chleb pszenny na zakwasie",
-        description: "Chrupiaca skorka, miekki srodek.",
+        name: "Chleb żytni z ziarnami 100%",
       },
       {
-        name: "Bagietka z ziarnami",
-        description: "Delikatna, z sezamem i siemieniem.",
+        name: "Chleb żytni 100%",
       },
       {
-        name: "Focaccia rozmarynowa",
-        description: "Oliwa, sol morska, swiezy rozmaryn.",
-        featured: true,
-      },
-    ],
-  },
-  {
-    id: "slodkosci",
-    label: "Slodkosci",
-    items: [
-      {
-        name: "Croissant maslany",
-        description: "Laminowane ciasto, czyste maslo.",
+        name: "Chleb śląski rzemieślniczy",
       },
       {
-        name: "Tarta pistacjowa",
-        description: "Krem pistacjowy, kruche ciasto.",
-        featured: true,
+        name: "Chleb wiejski rzemieślniczy",
       },
       {
-        name: "Cynamonki",
-        description: "Cieple, z lukrem waniliowym.",
-      },
-    ],
-  },
-  {
-    id: "kawa",
-    label: "Kawa i napoje",
-    items: [
-      {
-        name: "Flat white",
-        description: "Doble espresso, mleko z mikropiana.",
+        name: "Chleb hetman",
       },
       {
-        name: "Cold brew z cytrusem",
-        description: "Orzezwiajace, lekko cytrusowe.",
+        name: "Chleb na liściu kapusty",
       },
       {
-        name: "Kakao na mleku owsianym",
-        description: "Kremowe, delikatnie slodzone.",
-      },
-    ],
-  },
-  {
-    id: "cieple",
-    label: "Cieple dania",
-    items: [
-      {
-        name: "Pierogi z serem i mieta",
-        description: "Podawane z maslem ziolowym.",
+        name: "Chleb metrowy",
       },
       {
-        name: "Zupa dnia",
-        description: "Sezonowe warzywa, chrupka grzanka.",
+        name: "Chleb płaskurek",
       },
       {
-        name: "Krem z pieczonej dyni",
-        description: "Z olejem ziolowym i pestkami.",
+        name: "Chleb płaskurek z ziarnami",
+      },
+      {
+        name: "Chleb podhalański",
+      },
+      {
+        name: "Chleb orkisz",
+      },
+      {
+        name: "Chleb ciabata",
+      },
+      {
+        name: "Bagietka ciabata",
+      },
+      {
+        name: "Bułka ciabata",
       },
     ],
   },
@@ -111,6 +85,9 @@ export default function Menu() {
           </button>
         ))}
       </div>
+      <div className="mt-4 inline-flex items-center rounded-full border border-[color:rgba(178,135,73,0.25)] bg-[color:var(--wheat-100)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--brown-900)]">
+        Słodkości oraz inne produkty wkrótce w ofercie!
+      </div>
       <div className="mt-8 grid gap-6 md:grid-cols-3">
         {current?.items.map((item) => (
           <div
@@ -121,9 +98,11 @@ export default function Menu() {
               <h3 className="text-base font-semibold text-[color:var(--brown-900)]">
                 {item.name}
               </h3>
-              <p className="mt-2 text-sm text-[color:var(--brown-700)]">
-                {item.description}
-              </p>
+              {item.description ? (
+                <p className="mt-2 text-sm text-[color:var(--brown-700)]">
+                  {item.description}
+                </p>
+              ) : null}
             </div>
             {item.featured ? (
               <span className="mt-4 inline-flex items-center rounded-full bg-[color:var(--wheat-300)] px-3 py-1 text-xs font-semibold text-[color:var(--brown-900)]">
