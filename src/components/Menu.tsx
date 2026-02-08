@@ -4,7 +4,19 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const categories = [
+type MenuItem = {
+  name: string;
+  description?: string;
+  featured?: boolean;
+};
+
+type MenuCategory = {
+  id: string;
+  label: string;
+  items: MenuItem[];
+};
+
+const categories: MenuCategory[] = [
   {
     id: "chleb",
     label: "Chleb",
