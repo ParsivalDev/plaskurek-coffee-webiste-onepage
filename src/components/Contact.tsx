@@ -15,7 +15,7 @@ export default function Contact() {
             Płaskurek
           </h3>
           <p className="mt-2 text-sm text-[color:var(--brown-700)]">
-            ul. XYZ 12, 00-000 Busko-Zdrój
+            11 Listopada 59a, 28-200 Staszów
           </p>
           <div className="mt-6 grid gap-4 text-sm text-[color:var(--brown-700)]">
             <div>
