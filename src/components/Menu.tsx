@@ -22,46 +22,19 @@ const categories: MenuCategory[] = [
     label: "Chleb",
     items: [
       {
-        name: "Chleb żytni z ziarnami 100%",
+        name: "Chleb RZEMIEŚLNICZY WIEJSKI 1,00 kg",
       },
       {
-        name: "Chleb żytni 100%",
+        name: "Chleb ŚLĄSKI 0,70 kg",
       },
       {
-        name: "Chleb śląski rzemieślniczy",
+        name: "Chleb ŻYTNI z ziarnami 0,70 kg",
       },
       {
-        name: "Chleb wiejski rzemieślniczy",
+        name: "Chleb ŻYTNI naturalny 0,70 kg",
       },
       {
-        name: "Chleb hetman",
-      },
-      {
-        name: "Chleb na liściu kapusty",
-      },
-      {
-        name: "Chleb metrowy",
-      },
-      {
-        name: "Chleb płaskurek",
-      },
-      {
-        name: "Chleb płaskurek z ziarnami",
-      },
-      {
-        name: "Chleb podhalański",
-      },
-      {
-        name: "Chleb orkisz",
-      },
-      {
-        name: "Chleb ciabata",
-      },
-      {
-        name: "Bagietka ciabata",
-      },
-      {
-        name: "Bułka ciabata",
+        name: "Chleb HETMAN 0,80 kg",
       },
     ],
   },
