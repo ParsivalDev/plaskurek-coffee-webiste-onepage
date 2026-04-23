@@ -75,9 +75,11 @@ export default function Menu() {
       </div>
       <div className="mt-8 grid gap-6 md:grid-cols-3">
         {current?.items.map((item) => (
-          <div
+          <motion.div
             key={item.name}
-            className="rounded-2xl border border-transparent bg-white/80 p-4 shadow-sm transition hover:border-[color:rgba(178,135,73,0.2)]"
+            whileHover={{ y: -4, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="cursor-default rounded-2xl border border-transparent bg-white/80 p-4 shadow-sm hover:border-[color:rgba(45,90,61,0.2)] hover:shadow-soft"
           >
             <div>
               <h3 className="text-base font-semibold text-[color:var(--brown-900)]">
@@ -94,7 +96,7 @@ export default function Menu() {
                 Dzis polecamy
               </span>
             ) : null}
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

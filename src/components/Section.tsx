@@ -21,7 +21,7 @@ export default function Section({
             <p className="text-sm uppercase tracking-[0.3em] text-[color:var(--green-muted)]">
               {subtitle}
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-[color:var(--brown-900)] md:text-4xl">
+            <h2 className="font-display mt-3 text-3xl font-bold text-[color:var(--brown-900)] md:text-4xl">
               {title}
             </h2>
           </div>

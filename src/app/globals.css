@@ -8,6 +8,8 @@
   --wheat-300: #d8b776;
   --wheat-500: #b28749;
   --green-muted: #7a7a55;
+  --accent: #2d5a3d;
+  --accent-hover: #234a31;
   --brown-700: #4a3524;
   --brown-900: #2c2016;
   --coffee: #3b2a1e;
@@ -26,8 +28,12 @@ body {
   min-height: 100%;
   color: var(--brown-700);
   background-color: var(--wheat-50);
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   text-rendering: optimizeLegibility;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
 }
 
 .page-bg {

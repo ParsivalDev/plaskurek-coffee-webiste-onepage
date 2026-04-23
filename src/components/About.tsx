@@ -45,11 +45,12 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="section-card rounded-2xl p-5 shadow-soft"
+              className="section-card cursor-default rounded-2xl p-5 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-warm"
+            whileHover={{ scale: 1.01 }}
             >
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--wheat-100)]">
-                  <span className="text-[color:var(--wheat-500)]">+</span>
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[color:var(--wheat-100)]">
+                  <span className="text-[color:var(--accent)] font-bold">✦</span>
                 </div>
                 <div>
                   <h3 className="text-base font-semibold text-[color:var(--brown-900)]">

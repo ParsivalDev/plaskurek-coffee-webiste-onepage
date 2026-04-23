@@ -119,7 +119,7 @@ export default function Events() {
             </p>
             <a
               href="mailto:plaskurekcoffee@o2.pl"
-              className="focus-ring mt-6 inline-flex items-center justify-center rounded-full bg-[color:var(--brown-900)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--brown-700)]"
+              className="focus-ring mt-6 inline-flex items-center justify-center rounded-full bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[color:var(--accent-hover)]"
             >
               plaskurekcoffee@o2.pl
             </a>

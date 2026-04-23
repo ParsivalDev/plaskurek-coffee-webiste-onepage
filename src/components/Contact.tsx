@@ -34,7 +34,7 @@ export default function Contact() {
           </div>
           <a
             href="#"
-            className="focus-ring mt-6 inline-flex rounded-full bg-[color:var(--wheat-300)] px-5 py-3 text-sm font-semibold text-[color:var(--brown-900)] transition hover:bg-[color:var(--wheat-500)]"
+            className="focus-ring mt-6 inline-flex rounded-full bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[color:var(--accent-hover)]"
           >
             Jak dojechać
           </a>
