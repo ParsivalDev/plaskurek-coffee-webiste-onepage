@@ -3,7 +3,7 @@ export default function ContactMap() {
     <div className="relative overflow-hidden rounded-2xl border border-[color:rgba(178,135,73,0.18)] shadow-soft">
       <iframe
         title="Lokalizacja Płaskurek Coffee"
-        src="https://maps.google.com/maps?q=P%C5%82askurek+Coffee+Piekarnia+Rzemie%C5%9Blnicza%2C+Ludwika+Wary%C5%84skiego+33A%2C+28-100+Busko-Zdr%C3%B3j&output=embed&hl=pl"
+        src="https://maps.google.com/maps?q=11+Listopada+59a%2C+28-200+Stasz%C3%B3w&output=embed&hl=pl"
         width="100%"
         height="320"
         style={{ border: 0, display: "block" }}
