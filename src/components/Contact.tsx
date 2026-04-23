@@ -15,7 +15,8 @@ export default function Contact() {
             Płaskurek
           </h3>
           <p className="mt-2 text-sm text-[color:var(--brown-700)]">
-            ul. 11-Listopada 59a, 28-200 Staszów AAA
+            ul. 11-Listopada 59a, 28-200 Staszów
+          </p>
           <div className="mt-6 grid gap-4 text-sm text-[color:var(--brown-700)]">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-[color:var(--green-muted)]">
