@@ -1,17 +1,31 @@
+import { Wheat } from "@/components/Icons";
+
+const items = [
+  "Sezonowe nowości: drożdżówka z gruszką i kardamonem",
+  "Krem z dyni z olejem ziołowym",
+  "Ciasto orzechowe z miodem",
+  "Kawa z przyprawami korzennymi",
+];
+
 export default function SeasonalStrip() {
+  const full = [...items, ...items];
+
   return (
-    <section className="relative overflow-hidden bg-[color:var(--brown-900)] py-4 text-white">
-      <div className="absolute inset-0 bg-gradient-to-r from-[color:rgba(216,183,118,0.25)] via-transparent to-[color:rgba(122,122,85,0.2)] opacity-70" />
-      <div className="relative mx-auto max-w-6xl overflow-hidden px-6 md:px-10">
-        <div className="flex w-[200%] gap-8 whitespace-nowrap text-sm uppercase tracking-[0.3em] text-white/80 animate-ticker">
-          <span>Sezonowe nowosci: drozdzowka z gruszka i kardamonem</span>
-          <span>Krem z dyni z olejem ziolowym</span>
-          <span>Ciasto orzechowe z miodem</span>
-          <span>Kawa z przyprawami korzennymi</span>
-          <span>Sezonowe nowosci: drozdzowka z gruszka i kardamonem</span>
-          <span>Krem z dyni z olejem ziolowym</span>
-          <span>Ciasto orzechowe z miodem</span>
-          <span>Kawa z przyprawami korzennymi</span>
+    <section className="relative overflow-hidden border-y border-[color:rgba(216,183,118,0.15)] bg-[color:var(--brown-900)] py-5 text-white">
+      <div className="absolute inset-0 bg-gradient-to-r from-[color:rgba(216,183,118,0.2)] via-transparent to-[color:rgba(122,122,85,0.18)]" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-[color:var(--brown-900)] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-[color:var(--brown-900)] to-transparent" />
+      <div className="relative mx-auto max-w-full overflow-hidden">
+        <div className="flex w-[200%] animate-ticker items-center gap-10 whitespace-nowrap px-6 text-sm tracking-[0.2em] text-white/85 md:px-10">
+          {full.map((item, index) => (
+            <span key={index} className="flex items-center gap-10">
+              <Wheat
+                size={16}
+                className="text-[color:var(--wheat-300)] opacity-70"
+              />
+              <span className="uppercase">{item}</span>
+            </span>
+          ))}
         </div>
       </div>
     </section>

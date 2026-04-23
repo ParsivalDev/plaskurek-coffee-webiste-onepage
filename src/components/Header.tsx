@@ -47,9 +47,12 @@ export default function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
-        <div className="relative z-10 text-lg font-semibold tracking-wide text-[color:var(--wheat-100)] md:text-xl">
+        <a
+          href="#start"
+          className="font-display relative z-10 text-xl font-bold tracking-wide text-[color:var(--wheat-100)] md:text-2xl"
+        >
           Płaskurek
-        </div>
+        </a>
         <nav className="hidden items-center gap-6 text-sm font-medium text-[color:var(--wheat-100)] lg:flex">
           {links.map((link) => (
             <a
@@ -75,7 +78,7 @@ export default function Header() {
         </nav>
         <a
           href="#eventy"
-          className="focus-ring relative z-10 rounded-full bg-[color:var(--wheat-300)] px-4 py-2 text-sm font-semibold text-[color:var(--brown-900)] shadow-soft transition hover:-translate-y-0.5 hover:bg-[color:var(--wheat-500)]"
+          className="focus-ring relative z-10 hidden rounded-full bg-[color:var(--wheat-300)] px-5 py-2 text-sm font-semibold text-[color:var(--brown-900)] shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-[color:var(--wheat-500)] hover:shadow-warm sm:inline-flex"
         >
           Zarezerwuj
         </a>

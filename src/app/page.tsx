@@ -8,6 +8,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SeasonalStrip from "@/components/SeasonalStrip";
 import About from "@/components/About";
+import SectionDivider from "@/components/SectionDivider";
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
         <Section id="menu" title="Menu i oferta" subtitle="Menu">
           <Menu />
         </Section>
+        <SectionDivider />
         <Space />
         <Events />
         <Contact />
