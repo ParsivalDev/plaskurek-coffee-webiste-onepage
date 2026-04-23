@@ -36,7 +36,7 @@ export default function Contact() {
             href="#"
             className="focus-ring mt-6 inline-flex rounded-full bg-[color:var(--wheat-300)] px-5 py-3 text-sm font-semibold text-[color:var(--brown-900)] transition hover:bg-[color:var(--wheat-500)]"
           >
-            Jak dojechac
+            Jak dojechać
           </a>
         </div>
         <ContactMap />
