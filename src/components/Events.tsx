@@ -35,38 +35,7 @@ const packages = [
 ];
 
 export default function Events() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
-    "idle"
-  );
   const [isPopupOpen, setIsPopupOpen] = useState(true);
-
-  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setStatus("loading");
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        setStatus("error");
-        return;
-      }
-
-      form.reset();
-      setStatus("success");
-      setTimeout(() => setStatus("idle"), 2400);
-    } catch (error) {
-      setStatus("error");
-    }
-  };
 
   return (
     <>
@@ -141,75 +110,22 @@ export default function Events() {
               ))}
             </div>
           </div>
-          <div className="rounded-2xl border border-[color:rgba(178,135,73,0.18)] bg-white/80 p-6 shadow-soft">
+          <div className="rounded-2xl border border-[color:rgba(178,135,73,0.18)] bg-white/80 p-6 shadow-soft flex flex-col justify-center">
             <h3 className="text-lg font-semibold text-[color:var(--brown-900)]">
               Zapytaj o termin
             </h3>
-            <form onSubmit={onSubmit} className="mt-4 space-y-3">
-              <input
-                required
-                type="text"
-                name="name"
-                placeholder="Imie"
-                aria-label="Imie"
-                className="focus-ring w-full rounded-xl border border-[color:rgba(178,135,73,0.2)] bg-white px-4 py-3 text-sm"
-              />
-              <input
-                required
-                type="email"
-                name="email"
-                placeholder="Email"
-                aria-label="Email"
-                className="focus-ring w-full rounded-xl border border-[color:rgba(178,135,73,0.2)] bg-white px-4 py-3 text-sm"
-              />
-              <input
-                required
-                type="date"
-                name="date"
-                aria-label="Data"
-                className="focus-ring w-full rounded-xl border border-[color:rgba(178,135,73,0.2)] bg-white px-4 py-3 text-sm"
-              />
-              <input
-                required
-                type="number"
-                name="people"
-                min={1}
-                placeholder="Liczba osob"
-                aria-label="Liczba osob"
-                className="focus-ring w-full rounded-xl border border-[color:rgba(178,135,73,0.2)] bg-white px-4 py-3 text-sm"
-              />
-              <textarea
-                required
-                name="message"
-                placeholder="Wiadomosc"
-                aria-label="Wiadomosc"
-                rows={4}
-                className="focus-ring w-full rounded-xl border border-[color:rgba(178,135,73,0.2)] bg-white px-4 py-3 text-sm"
-              />
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="focus-ring w-full rounded-full bg-[color:var(--brown-900)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--brown-700)] disabled:cursor-not-allowed disabled:opacity-70"
-              >
-                {status === "loading" ? "Wysylanie..." : "Wyslij zapytanie"}
-              </button>
-            </form>
-            {status === "success" && (
-              <div
-                role="status"
-                className="mt-4 rounded-xl bg-[color:var(--wheat-100)] px-4 py-3 text-sm text-[color:var(--brown-900)]"
-              >
-                Wyslano. Odezwiemy sie wkrotce!
-              </div>
-            )}
-            {status === "error" && (
-              <div
-                role="alert"
-                className="mt-4 rounded-xl bg-[color:rgba(74,53,36,0.08)] px-4 py-3 text-sm text-[color:var(--brown-900)]"
-              >
-                Nie udalo sie wyslac. Sprobuj ponownie pozniej.
-              </div>
-            )}
+            <p className="mt-3 text-sm text-[color:var(--brown-700)]">
+              Chcesz zarezerwować strefę, zorganizować spotkanie firmowe lub uroczystość? Napisz do nas — chętnie dobierzemy ofertę do Twoich potrzeb.
+            </p>
+            <a
+              href="mailto:plaskurekcoffee@o2.pl"
+              className="focus-ring mt-6 inline-flex items-center justify-center rounded-full bg-[color:var(--brown-900)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--brown-700)]"
+            >
+              plaskurekcoffee@o2.pl
+            </a>
+            <p className="mt-4 text-center text-xs text-[color:var(--brown-700)]">
+              Odpowiadamy w ciągu 24 godzin
+            </p>
           </div>
         </div>
       </Section>
