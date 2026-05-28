@@ -60,10 +60,13 @@ export default function Contact() {
                     Godziny
                   </p>
                   <p className="mt-1 text-sm text-[color:var(--brown-900)]">
-                    Pn–Pt: 7:00 – 21:00
+                    Pn–Pt: 6:30 – 20:00
                   </p>
                   <p className="text-sm text-[color:var(--brown-900)]">
-                    Sob–Nd: 8:00 – 22:00
+                    Sob: 8:00 – 20:00
+                  </p>
+                  <p className="text-sm text-[color:var(--brown-900)]">
+                    Nd: 9:00 – 20:00
                   </p>
                 </div>
               </div>
