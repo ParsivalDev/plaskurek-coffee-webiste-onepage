@@ -40,9 +40,18 @@ export default function About() {
             To miejsce spotkań, pracy i spokojnego poranka. Robimy prosto, uczciwie
             i z miłą atmosferą.
           </p>
-          <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-[color:rgba(178,135,73,0.3)] bg-white/60 px-4 py-2 text-sm text-[color:var(--brown-700)] backdrop-blur-sm">
-            <span className="h-2 w-2 rounded-full bg-[color:var(--accent)]" />
-            Otwieramy wkrótce w Staszowie
+          <div className="mt-8 flex flex-col items-start gap-3">
+            <div className="inline-flex items-center gap-3 rounded-full border border-[color:rgba(178,135,73,0.3)] bg-white/60 px-4 py-2 text-sm text-[color:var(--brown-700)] backdrop-blur-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--accent)] opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--accent)]" />
+              </span>
+              Otwarte w Staszowie
+            </div>
+            <div className="inline-flex items-center gap-3 rounded-full border border-[color:rgba(178,135,73,0.25)] bg-white/40 px-4 py-2 text-sm text-[color:var(--brown-700)] backdrop-blur-sm">
+              <span className="h-2 w-2 rounded-full bg-[color:var(--wheat-500)]" />
+              Niedługo również otwarcie w Busko-Zdrój
+            </div>
           </div>
         </motion.div>
         <div className="grid gap-4">
