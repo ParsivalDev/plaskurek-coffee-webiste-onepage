@@ -48,6 +48,12 @@ export default function Contact() {
                   <p className="text-sm text-[color:var(--brown-900)]">
                     28-200 Staszów
                   </p>
+                  <p className="mt-3 text-sm text-[color:var(--brown-900)]">
+                    ul. Ludwika Waryńskiego 33A
+                  </p>
+                  <p className="text-sm text-[color:var(--brown-900)]">
+                    28-100 Busko-Zdrój
+                  </p>
                 </div>
               </div>
 
@@ -89,18 +95,32 @@ export default function Contact() {
               </div>
             </div>
 
-            <a
-              href="https://maps.google.com/maps?q=11+Listopada+59a%2C+28-200+Stasz%C3%B3w"
-              target="_blank"
-              rel="noreferrer"
-              className="focus-ring group mt-8 inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[color:var(--accent-hover)] hover:shadow-[0_10px_28px_rgba(45,90,61,0.35)]"
-            >
-              Jak dojechać
-              <ArrowRight
-                size={16}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </a>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="https://maps.google.com/maps?q=11+Listopada+59a%2C+28-200+Stasz%C3%B3w"
+                target="_blank"
+                rel="noreferrer"
+                className="focus-ring group inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[color:var(--accent-hover)] hover:shadow-[0_10px_28px_rgba(45,90,61,0.35)]"
+              >
+                Dojazd: Staszów
+                <ArrowRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </a>
+              <a
+                href="https://maps.google.com/maps?q=Ludwika+Wary%C5%84skiego+33A%2C+28-100+Busko-Zdr%C3%B3j"
+                target="_blank"
+                rel="noreferrer"
+                className="focus-ring group inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[color:var(--accent-hover)] hover:shadow-[0_10px_28px_rgba(45,90,61,0.35)]"
+              >
+                Dojazd: Busko-Zdrój
+                <ArrowRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </a>
+            </div>
           </div>
         </motion.div>
         <motion.div

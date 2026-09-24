@@ -73,6 +73,14 @@ export default function Footer() {
                 28-200 Staszów
               </span>
             </div>
+            <div className="mt-3 flex items-start gap-2 text-sm text-white/80">
+              <MapPin size={16} className="mt-0.5 shrink-0 text-white/60" />
+              <span>
+                ul. Ludwika Waryńskiego 33A
+                <br />
+                28-100 Busko-Zdrój
+              </span>
+            </div>
             <a
               href="mailto:plaskurekcoffee@o2.pl"
               className="mt-3 flex items-start gap-2 text-sm text-white/80 transition hover:text-white"

@@ -48,9 +48,12 @@ export default function About() {
               </span>
               Otwarte w Staszowie
             </div>
-            <div className="inline-flex items-center gap-3 rounded-full border border-[color:rgba(178,135,73,0.25)] bg-white/40 px-4 py-2 text-sm text-[color:var(--brown-700)] backdrop-blur-sm">
-              <span className="h-2 w-2 rounded-full bg-[color:var(--wheat-500)]" />
-              Niedługo również otwarcie w Busko-Zdrój
+            <div className="inline-flex items-center gap-3 rounded-full border border-[color:rgba(178,135,73,0.3)] bg-white/60 px-4 py-2 text-sm text-[color:var(--brown-700)] backdrop-blur-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--accent)] opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--accent)]" />
+              </span>
+              Otwarte w Busku-Zdroju od maja 2026
             </div>
           </div>
         </motion.div>

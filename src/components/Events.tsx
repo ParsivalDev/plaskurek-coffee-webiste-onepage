@@ -66,17 +66,17 @@ export default function Events() {
               <div className="relative">
                 <div className="mx-auto inline-flex items-center gap-2 rounded-full bg-[color:var(--wheat-100)] px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-[color:var(--brown-900)]">
                   <Sparkle size={12} className="text-[color:var(--accent)]" />
-                  Coming soon
+                  Już otwarte
                 </div>
                 <h2
                   id="opening-title"
                   className="font-display mt-4 text-3xl font-bold text-[color:var(--brown-900)]"
                 >
-                  Wkrótce otwieramy!
+                  Jesteśmy otwarci od maja 2026!
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-[color:var(--brown-700)]">
-                  Dziękujemy, że jesteś z nami. Już dopinamy ostatnie szczegóły
-                  i nie możemy się doczekać Twojej pierwszej kawy.
+                  Dziękujemy, że jesteś z nami. Zapraszamy na kawę, świeże wypieki
+                  i ciepłe dania — w Staszowie i w Busku-Zdroju.
                 </p>
                 <p className="mt-4 text-sm text-[color:var(--brown-700)]">
                   Zajrzyj na nasz fanpage:
