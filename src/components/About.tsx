@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Section from "@/components/Section";
 import { Bread, Coffee, Bowl } from "@/components/Icons";
+import { locations } from "@/lib/locations";
 
 const cards = [
   {
@@ -40,21 +41,34 @@ export default function About() {
             To miejsce spotkań, pracy i spokojnego poranka. Robimy prosto, uczciwie
             i z miłą atmosferą.
           </p>
-          <div className="mt-8 flex flex-col items-start gap-3">
-            <div className="inline-flex items-center gap-3 rounded-full border border-[color:rgba(178,135,73,0.3)] bg-white/60 px-4 py-2 text-sm text-[color:var(--brown-700)] backdrop-blur-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--accent)] opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--accent)]" />
-              </span>
-              Otwarte w Staszowie
-            </div>
-            <div className="inline-flex items-center gap-3 rounded-full border border-[color:rgba(178,135,73,0.3)] bg-white/60 px-4 py-2 text-sm text-[color:var(--brown-700)] backdrop-blur-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--accent)] opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--accent)]" />
-              </span>
-              Otwarte w Busku-Zdroju od maja 2026
-            </div>
+          <div className="mt-8">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[color:var(--green-muted)]">
+              Nasze piekarnie
+            </p>
+            <ul className="mt-3 flex flex-wrap gap-3">
+              {locations.map((location) => (
+                <li key={location.id}>
+                  <a
+                    href="#kontakt"
+                    className="group inline-flex items-center gap-3 rounded-full border border-[color:rgba(178,135,73,0.3)] bg-white/60 px-4 py-2 text-sm text-[color:var(--brown-700)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-white"
+                  >
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--accent)] opacity-60 motion-reduce:hidden" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--accent)]" />
+                    </span>
+                    <span>
+                      <span className="font-semibold text-[color:var(--brown-900)]">
+                        {location.city}
+                      </span>{" "}
+                      — otwarte
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-sm text-[color:var(--brown-700)]">
+              Jesteśmy otwarci od maja 2026 — zapraszamy do obu piekarni.
+            </p>
           </div>
         </motion.div>
         <div className="grid gap-4">
@@ -74,7 +88,7 @@ export default function About() {
             >
               <div
                 aria-hidden="true"
-                className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-[color:var(--accent)]/5 transition-all duration-500 group-hover:scale-150 group-hover:bg-[color:var(--accent)]/10"
+                className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-accent/5 transition-all duration-500 group-hover:scale-150 group-hover:bg-accent/10"
               />
               <div className="relative flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[color:var(--wheat-100)] text-[color:var(--accent)] transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">

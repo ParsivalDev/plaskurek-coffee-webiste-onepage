@@ -1,4 +1,10 @@
 import { Facebook, Mail, MapPin, Wheat } from "@/components/Icons";
+import {
+  CONTACT_EMAIL,
+  FACEBOOK_URL,
+  locations,
+  mapsSearchUrl,
+} from "@/lib/locations";
 
 const links = [
   { id: "start", label: "Start" },
@@ -24,11 +30,12 @@ export default function Footer() {
             <p className="font-display text-3xl font-bold">Płaskurek</p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70">
               Piekarnia i kawiarnia, w której chce się zostać. Rzemiosło wypieku,
-              kawa z charakterem i miejsce na spokojną chwilę.
+              kawa z charakterem i miejsce na spokojną chwilę — w Staszowie
+              i w Busku-Zdroju.
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="https://www.facebook.com/profile.php?id=61586080679602"
+                href={FACEBOOK_URL}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
@@ -37,7 +44,7 @@ export default function Footer() {
                 <Facebook size={18} />
               </a>
               <a
-                href="mailto:plaskurekcoffee@o2.pl"
+                href={`mailto:${CONTACT_EMAIL}`}
                 aria-label="Email"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:-translate-y-0.5 hover:bg-white/20"
               >
@@ -65,34 +72,37 @@ export default function Footer() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/50">
               Kontakt
             </p>
-            <div className="mt-4 flex items-start gap-2 text-sm text-white/80">
-              <MapPin size={16} className="mt-0.5 shrink-0 text-white/60" />
-              <span>
-                ul. 11-Listopada 59a
-                <br />
-                28-200 Staszów
-              </span>
-            </div>
-            <div className="mt-3 flex items-start gap-2 text-sm text-white/80">
-              <MapPin size={16} className="mt-0.5 shrink-0 text-white/60" />
-              <span>
-                ul. Ludwika Waryńskiego 33A
-                <br />
-                28-100 Busko-Zdrój
-              </span>
-            </div>
+            <ul className="mt-4 space-y-3">
+              {locations.map((location) => (
+                <li key={location.id}>
+                  <a
+                    href={mapsSearchUrl(location)}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-start gap-2 text-sm text-white/80 transition hover:text-white"
+                  >
+                    <MapPin size={16} className="mt-0.5 shrink-0 text-white/60" />
+                    <span>
+                      {location.street}
+                      <br />
+                      {location.postalCode} {location.city}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
             <a
-              href="mailto:plaskurekcoffee@o2.pl"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="mt-3 flex items-start gap-2 text-sm text-white/80 transition hover:text-white"
             >
               <Mail size={16} className="mt-0.5 shrink-0 text-white/60" />
-              plaskurekcoffee@o2.pl
+              {CONTACT_EMAIL}
             </a>
           </div>
         </div>
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 md:flex-row md:items-center">
           <p className="text-xs text-white/50">
-            © 2026 Płaskurek. Wszystkie prawa zastrzeżone.
+            © {new Date().getFullYear()} Płaskurek. Wszystkie prawa zastrzeżone.
           </p>
           <p className="text-xs text-white/40">Wypiekamy z sercem</p>
         </div>

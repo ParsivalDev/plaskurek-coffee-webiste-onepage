@@ -1,11 +1,13 @@
-export default function ContactMap() {
+import { mapsEmbedUrl, type Location } from "@/lib/locations";
+
+export default function ContactMap({ location }: { location: Location }) {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-[color:rgba(178,135,73,0.18)] shadow-soft">
+    <div className="relative border-t border-[color:rgba(178,135,73,0.18)] bg-[color:var(--wheat-100)]">
       <iframe
-        title="Lokalizacja Płaskurek Coffee"
-        src="https://maps.google.com/maps?q=11+Listopada+59a%2C+28-200+Stasz%C3%B3w&output=embed&hl=pl"
+        title={`Mapa dojazdu — Płaskurek ${location.city}`}
+        src={mapsEmbedUrl(location)}
         width="100%"
-        height="320"
+        height="300"
         style={{ border: 0, display: "block" }}
         allowFullScreen
         loading="lazy"

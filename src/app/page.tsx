@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <div className="relative">
       <Header />
-      <main>
+      <main id="tresc">
         <Hero />
         <About />
         <SeasonalStrip />

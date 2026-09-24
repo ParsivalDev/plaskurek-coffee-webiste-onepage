@@ -7,6 +7,7 @@ import { Wheat, Sparkle } from "@/components/Icons";
 
 type MenuItem = {
   name: string;
+  weight?: string;
   description?: string;
   featured?: boolean;
 };
@@ -22,11 +23,11 @@ const categories: MenuCategory[] = [
     id: "chleb",
     label: "Chleb",
     items: [
-      { name: "Chleb RZEMIEŚLNICZY WIEJSKI 1,00 kg" },
-      { name: "Chleb ŚLĄSKI 0,70 kg" },
-      { name: "Chleb ŻYTNI z ziarnami 0,70 kg" },
-      { name: "Chleb ŻYTNI naturalny 0,70 kg" },
-      { name: "Chleb HETMAN 0,80 kg" },
+      { name: "Chleb rzemieślniczy wiejski", weight: "1,00 kg" },
+      { name: "Chleb śląski", weight: "0,70 kg" },
+      { name: "Chleb żytni z ziarnami", weight: "0,70 kg" },
+      { name: "Chleb żytni naturalny", weight: "0,70 kg" },
+      { name: "Chleb Hetman", weight: "0,80 kg" },
     ],
   },
 ];
@@ -49,8 +50,9 @@ export default function Menu() {
             key={category.id}
             type="button"
             onClick={() => setActive(category.id)}
+            aria-pressed={active === category.id}
             className={cn(
-              "focus-ring relative rounded-full px-5 py-2 text-sm font-semibold transition",
+              "focus-ring relative isolate rounded-full px-5 py-2 text-sm font-semibold transition",
               active === category.id
                 ? "text-[color:var(--brown-900)]"
                 : "text-[color:var(--brown-700)] hover:text-[color:var(--brown-900)]"
@@ -67,11 +69,11 @@ export default function Menu() {
           </button>
         ))}
       </div>
-      <div className="relative mt-5 inline-flex items-center gap-2 rounded-full border border-[color:rgba(178,135,73,0.3)] bg-[color:var(--wheat-100)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--brown-900)]">
+      <div className="relative mt-5 inline-flex items-center gap-2 rounded-2xl sm:rounded-full border border-[color:rgba(178,135,73,0.3)] bg-[color:var(--wheat-100)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--brown-900)]">
         <Sparkle size={14} className="text-[color:var(--accent)]" />
-        Słodkości oraz inne produkty wkrótce w ofercie!
+        Na miejscu także kawa, słodkości i ciepłe dania — zapytaj o ofertę dnia
       </div>
-      <div className="relative mt-10 grid gap-6 md:grid-cols-3">
+      <div className="relative mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {current?.items.map((item, index) => (
           <motion.div
             key={item.name}
@@ -84,7 +86,7 @@ export default function Menu() {
               ease: [0.22, 1, 0.36, 1],
             }}
             whileHover={{ y: -6 }}
-            className="group relative cursor-default overflow-hidden rounded-2xl border border-[color:rgba(178,135,73,0.15)] bg-white/85 p-5 shadow-sm transition-all duration-300 hover:border-[color:var(--accent)]/40 hover:shadow-warm"
+            className="group relative cursor-default overflow-hidden rounded-2xl border border-[color:rgba(178,135,73,0.15)] bg-white/85 p-5 shadow-sm transition-all duration-300 hover:border-accent/40 hover:shadow-warm"
           >
             <span
               aria-hidden="true"
@@ -98,6 +100,11 @@ export default function Menu() {
                 <h3 className="text-sm font-semibold leading-snug text-[color:var(--brown-900)]">
                   {item.name}
                 </h3>
+                {item.weight ? (
+                  <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-[color:var(--green-muted)]">
+                    {item.weight}
+                  </p>
+                ) : null}
                 {item.description ? (
                   <p className="mt-2 text-sm text-[color:var(--brown-700)]">
                     {item.description}
@@ -107,7 +114,7 @@ export default function Menu() {
             </div>
             {item.featured ? (
               <span className="mt-4 inline-flex items-center rounded-full bg-[color:var(--wheat-300)] px-3 py-1 text-xs font-semibold text-[color:var(--brown-900)]">
-                Dzis polecamy
+                Dziś polecamy
               </span>
             ) : null}
           </motion.div>

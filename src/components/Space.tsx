@@ -24,7 +24,7 @@ const timeCards = [
   },
   {
     title: "Wieczór",
-    text: "Spotkania ze znajomymi, ciepłe światło i rozmowy przy kieliszku kawy lub herbaty.",
+    text: "Spotkania ze znajomymi, ciepłe światło i rozmowy przy filiżance kawy lub herbaty.",
     Icon: Moon,
   },
 ];
@@ -66,7 +66,7 @@ export default function Space() {
                 transition={{ duration: 0.4, delay: 0.2 + index * 0.08 }}
                 className="flex items-center gap-3 text-sm text-[color:var(--brown-700)]"
               >
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[color:var(--accent)]/10 text-[color:var(--accent)]">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/10 text-[color:var(--accent)]">
                   <Check size={14} strokeWidth={2.4} />
                 </span>
                 {perk}
@@ -116,7 +116,7 @@ export default function Space() {
               ease: [0.22, 1, 0.36, 1],
             }}
             whileHover={{ y: -6 }}
-            className="group relative overflow-hidden rounded-2xl border border-[color:rgba(178,135,73,0.15)] bg-white/85 p-6 shadow-sm transition-all duration-300 hover:border-[color:var(--accent)]/30 hover:shadow-warm"
+            className="group relative overflow-hidden rounded-2xl border border-[color:rgba(178,135,73,0.15)] bg-white/85 p-6 shadow-sm transition-all duration-300 hover:border-accent/30 hover:shadow-warm"
           >
             <div className="flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[color:var(--wheat-100)] text-[color:var(--accent)] transition-transform duration-300 group-hover:rotate-12">

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Section from "@/components/Section";
 import { Check, Mail, ArrowRight, Sparkle } from "@/components/Icons";
+import { CONTACT_EMAIL } from "@/lib/locations";
 
 const packages = [
   {
@@ -39,7 +40,7 @@ export default function Events() {
       subtitle="Eventy"
       className="bg-[color:rgba(239,228,209,0.6)]"
     >
-      <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
+      <div className="relative">
         <div>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -52,7 +53,7 @@ export default function Events() {
             strefy na wieczorne rozmowy. Zadbamy o wypieki, ciepłe dania i
             spokojną, elegancką oprawę.
           </motion.p>
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {packages.map((pkg, index) => (
               <motion.div
                 key={pkg.name}
@@ -67,7 +68,7 @@ export default function Events() {
                 whileHover={{ y: -6 }}
                 className={
                   pkg.highlighted
-                    ? "group relative overflow-hidden rounded-2xl border-2 border-[color:var(--accent)]/40 bg-white p-6 shadow-warm"
+                    ? "group relative overflow-hidden rounded-2xl border-2 border-accent/40 bg-white p-6 shadow-warm"
                     : "group relative overflow-hidden rounded-2xl border border-[color:rgba(178,135,73,0.2)] bg-white/80 p-6 shadow-soft transition-shadow duration-300 hover:shadow-warm"
                 }
               >
@@ -88,7 +89,7 @@ export default function Events() {
                 <ul className="mt-5 space-y-3 text-sm text-[color:var(--brown-700)]">
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[color:var(--accent)]/10 text-[color:var(--accent)]">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/10 text-[color:var(--accent)]">
                         <Check size={12} strokeWidth={2.6} />
                       </span>
                       <span>{feature}</span>
@@ -97,46 +98,46 @@ export default function Events() {
                 </ul>
               </motion.div>
             ))}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="relative flex flex-col justify-center overflow-hidden rounded-2xl border border-[color:rgba(178,135,73,0.2)] bg-gradient-to-br from-white/95 to-wheat-100/50 p-6 shadow-soft sm:col-span-2 xl:col-span-1"
+            >
+              <div
+                aria-hidden="true"
+                className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent/10"
+              />
+              <div className="relative">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-[color:var(--accent)]">
+                  <Mail size={22} />
+                </div>
+                <h3 className="font-display mt-4 text-2xl font-bold text-[color:var(--brown-900)]">
+                  Zapytaj o termin
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[color:var(--brown-700)]">
+                  Chcesz zarezerwować strefę, zorganizować spotkanie firmowe lub
+                  uroczystość? Napisz do nas — chętnie dobierzemy ofertę do
+                  Twoich potrzeb.
+                </p>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="focus-ring group mt-6 inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[color:var(--accent-hover)] hover:shadow-[0_10px_28px_rgba(45,90,61,0.35)]"
+                >
+                  Napisz do nas
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </a>
+                <p className="mt-4 text-xs text-brown-700/80">
+                  {CONTACT_EMAIL} · odpowiadamy w ciągu 24 godzin
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="relative flex flex-col justify-center overflow-hidden rounded-2xl border border-[color:rgba(178,135,73,0.2)] bg-gradient-to-br from-white/95 to-[color:var(--wheat-100)]/50 p-8 shadow-soft"
-        >
-          <div
-            aria-hidden="true"
-            className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[color:var(--accent)]/10"
-          />
-          <div className="relative">
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[color:var(--accent)]/10 text-[color:var(--accent)]">
-              <Mail size={22} />
-            </div>
-            <h3 className="font-display mt-4 text-2xl font-bold text-[color:var(--brown-900)]">
-              Zapytaj o termin
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[color:var(--brown-700)]">
-              Chcesz zarezerwować strefę, zorganizować spotkanie firmowe lub
-              uroczystość? Napisz do nas — chętnie dobierzemy ofertę do Twoich
-              potrzeb.
-            </p>
-            <a
-              href="mailto:plaskurekcoffee@o2.pl"
-              className="focus-ring group mt-6 inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[color:var(--accent-hover)] hover:shadow-[0_10px_28px_rgba(45,90,61,0.35)]"
-            >
-              plaskurekcoffee@o2.pl
-              <ArrowRight
-                size={16}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </a>
-            <p className="mt-4 text-xs text-[color:var(--brown-700)]/80">
-              Odpowiadamy w ciągu 24 godzin
-            </p>
-          </div>
-        </motion.div>
       </div>
     </Section>
   );

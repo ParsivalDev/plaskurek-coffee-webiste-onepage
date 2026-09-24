@@ -3,7 +3,13 @@
 import { motion } from "framer-motion";
 import Section from "@/components/Section";
 import ContactMap from "@/components/ContactMap";
-import { MapPin, Clock, Mail, ArrowRight } from "@/components/Icons";
+import { MapPin, Clock, Mail, ArrowRight, Facebook } from "@/components/Icons";
+import {
+  CONTACT_EMAIL,
+  FACEBOOK_URL,
+  locations,
+  mapsSearchUrl,
+} from "@/lib/locations";
 
 export default function Contact() {
   return (
@@ -13,125 +19,155 @@ export default function Contact() {
       subtitle="Kontakt"
       className="bg-[color:rgba(239,228,209,0.6)]"
     >
-      <div className="grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="relative overflow-hidden rounded-2xl border border-[color:rgba(178,135,73,0.2)] bg-white/85 p-8 shadow-soft"
-        >
-          <div
-            aria-hidden="true"
-            className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[color:var(--accent)]/6"
-          />
-          <div className="relative">
-            <h3 className="font-display text-3xl font-bold text-[color:var(--brown-900)]">
-              Płaskurek
-            </h3>
-            <p className="mt-1 text-xs uppercase tracking-[0.3em] text-[color:var(--green-muted)]">
-              Piekarnia i kawiarnia
-            </p>
+      <motion.p
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="-mt-4 mb-10 max-w-2xl text-base leading-relaxed text-[color:var(--brown-700)]"
+      >
+        Zapraszamy do obu naszych piekarni — w Staszowie i w Busku-Zdroju.
+        Wybierz najbliższą i wpadnij na świeży chleb, kawę albo ciepły posiłek.
+      </motion.p>
 
-            <div className="mt-8 space-y-5">
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[color:var(--wheat-100)] text-[color:var(--accent)]">
-                  <MapPin size={18} />
-                </div>
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[color:var(--green-muted)]">
-                    Adres
-                  </p>
-                  <p className="mt-1 text-sm text-[color:var(--brown-900)]">
-                    ul. 11-Listopada 59a
-                  </p>
-                  <p className="text-sm text-[color:var(--brown-900)]">
-                    28-200 Staszów
-                  </p>
-                  <p className="mt-3 text-sm text-[color:var(--brown-900)]">
-                    ul. Ludwika Waryńskiego 33A
-                  </p>
-                  <p className="text-sm text-[color:var(--brown-900)]">
-                    28-100 Busko-Zdrój
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[color:var(--wheat-100)] text-[color:var(--accent)]">
-                  <Clock size={18} />
-                </div>
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[color:var(--green-muted)]">
-                    Godziny
-                  </p>
-                  <p className="mt-1 text-sm text-[color:var(--brown-900)]">
-                    Pn–Pt: 6:30 – 20:00
-                  </p>
-                  <p className="text-sm text-[color:var(--brown-900)]">
-                    Sob: 8:00 – 20:00
-                  </p>
-                  <p className="text-sm text-[color:var(--brown-900)]">
-                    Nd: 9:00 – 20:00
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[color:var(--wheat-100)] text-[color:var(--accent)]">
-                  <Mail size={18} />
-                </div>
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[color:var(--green-muted)]">
-                    Kontakt
-                  </p>
-                  <a
-                    href="mailto:plaskurekcoffee@o2.pl"
-                    className="mt-1 block text-sm text-[color:var(--brown-900)] hover:text-[color:var(--accent)]"
+      <div className="grid gap-8 lg:grid-cols-2">
+        {locations.map((location, index) => (
+          <motion.article
+            key={location.id}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{
+              duration: 0.7,
+              delay: index * 0.12,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            aria-labelledby={`lokal-${location.id}`}
+            className="relative flex flex-col overflow-hidden rounded-2xl border border-[color:rgba(178,135,73,0.2)] bg-white/85 shadow-soft"
+          >
+            <div className="relative flex-1 p-6 md:p-8">
+              <div
+                aria-hidden="true"
+                className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-accent/5"
+              />
+              <div className="relative">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <h3
+                    id={`lokal-${location.id}`}
+                    className="font-display text-2xl font-bold text-[color:var(--brown-900)] md:text-3xl"
                   >
-                    plaskurekcoffee@o2.pl
-                  </a>
+                    {location.city}
+                  </h3>
+                  <span className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-[color:var(--accent)]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--accent)]" />
+                    Otwarte
+                  </span>
                 </div>
+
+                <dl className="mt-6 grid gap-5 sm:grid-cols-2">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[color:var(--wheat-100)] text-[color:var(--accent)]">
+                      <MapPin size={18} />
+                    </div>
+                    <div>
+                      <dt className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[color:var(--green-muted)]">
+                        Adres
+                      </dt>
+                      <dd className="mt-1 text-sm text-[color:var(--brown-900)]">
+                        {location.street}
+                        <br />
+                        {location.postalCode} {location.city}
+                      </dd>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[color:var(--wheat-100)] text-[color:var(--accent)]">
+                      <Clock size={18} />
+                    </div>
+                    <div>
+                      <dt className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[color:var(--green-muted)]">
+                        Godziny
+                      </dt>
+                      {location.hours ? (
+                        <dd className="mt-1 text-sm text-[color:var(--brown-900)]">
+                          {location.hours.map((row) => (
+                            <span key={row.days} className="flex gap-2">
+                              <span className="w-12 shrink-0">{row.days}:</span>
+                              <span>{row.time}</span>
+                            </span>
+                          ))}
+                        </dd>
+                      ) : (
+                        <dd className="mt-1 text-sm text-[color:var(--brown-900)]">
+                          Aktualne godziny na{" "}
+                          <a
+                            href={FACEBOOK_URL}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="font-semibold underline decoration-[color:var(--wheat-300)] underline-offset-4 transition hover:text-[color:var(--accent)]"
+                          >
+                            naszym Facebooku
+                          </a>
+                        </dd>
+                      )}
+                    </div>
+                  </div>
+                </dl>
+
+                <a
+                  href={mapsSearchUrl(location)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="focus-ring group mt-7 inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[color:var(--accent-hover)] hover:shadow-[0_10px_28px_rgba(45,90,61,0.35)]"
+                >
+                  Jak dojechać
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </a>
               </div>
             </div>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="https://maps.google.com/maps?q=11+Listopada+59a%2C+28-200+Stasz%C3%B3w"
-                target="_blank"
-                rel="noreferrer"
-                className="focus-ring group inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[color:var(--accent-hover)] hover:shadow-[0_10px_28px_rgba(45,90,61,0.35)]"
-              >
-                Dojazd: Staszów
-                <ArrowRight
-                  size={16}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </a>
-              <a
-                href="https://maps.google.com/maps?q=Ludwika+Wary%C5%84skiego+33A%2C+28-100+Busko-Zdr%C3%B3j"
-                target="_blank"
-                rel="noreferrer"
-                className="focus-ring group inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-5 py-3 text-sm font-semibold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[color:var(--accent-hover)] hover:shadow-[0_10px_28px_rgba(45,90,61,0.35)]"
-              >
-                Dojazd: Busko-Zdrój
-                <ArrowRight
-                  size={16}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </a>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <ContactMap />
-        </motion.div>
+            <ContactMap location={location} />
+          </motion.article>
+        ))}
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="mt-8 flex flex-col gap-4 rounded-2xl border border-[color:rgba(178,135,73,0.2)] bg-white/70 p-6 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[color:var(--green-muted)]">
+            Napisz do nas
+          </p>
+          <p className="mt-1 text-sm text-[color:var(--brown-700)]">
+            Zamówienia, rezerwacje i pytania — odpowiadamy w ciągu 24 godzin.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="focus-ring inline-flex items-center gap-2 rounded-full border border-[color:rgba(178,135,73,0.35)] bg-white px-4 py-2.5 text-sm font-semibold text-[color:var(--brown-900)] transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
+          >
+            <Mail size={16} />
+            {CONTACT_EMAIL}
+          </a>
+          <a
+            href={FACEBOOK_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="focus-ring inline-flex items-center gap-2 rounded-full border border-[color:rgba(178,135,73,0.35)] bg-white px-4 py-2.5 text-sm font-semibold text-[color:var(--brown-900)] transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
+          >
+            <Facebook size={16} />
+            Facebook
+          </a>
+        </div>
+      </motion.div>
     </Section>
   );
 }

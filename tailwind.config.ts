@@ -7,6 +7,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        // Kolory z przezroczystością (np. bg-accent/10); wartości jak w globals.css.
+        accent: "rgb(45 90 61 / <alpha-value>)",
+        "brown-700": "rgb(74 53 36 / <alpha-value>)",
+        "wheat-100": "rgb(242 231 211 / <alpha-value>)",
+      },
       boxShadow: {
         soft: "0 12px 40px rgba(31, 20, 8, 0.18)",
         warm: "0 18px 60px rgba(51, 32, 12, 0.25)",
@@ -30,7 +36,7 @@ const config: Config = {
       },
       animation: {
         float: "float 6s ease-in-out infinite",
-        ticker: "ticker 18s linear infinite",
+        ticker: "ticker 40s linear infinite",
         shimmer: "shimmer 10s ease-in-out infinite",
       },
     },

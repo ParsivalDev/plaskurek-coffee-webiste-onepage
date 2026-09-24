@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import WheatParticles from "@/components/WheatParticles";
-import { ArrowRight, ChevronDown, Wheat } from "@/components/Icons";
+import { ArrowRight, ChevronDown, MapPin, Wheat } from "@/components/Icons";
 
 export const BANNER_SRC = "/banner.jpg";
 
@@ -21,7 +21,7 @@ export default function Hero() {
   return (
     <section
       id="start"
-      className="relative min-h-screen overflow-hidden text-white"
+      className="relative min-h-[100svh] overflow-hidden text-white"
     >
       <motion.div
         style={{ y }}
@@ -33,11 +33,12 @@ export default function Hero() {
           alt="Płaskurek - piekarnia i kawiarnia"
           fill
           priority
+          sizes="100vw"
           className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/45 to-[color:rgba(37,24,16,0.75)]" />
       </motion.div>
-      <div className="relative z-10 flex min-h-screen items-center">
+      <div className="relative z-10 flex min-h-[100svh] items-center">
         <div className="mx-auto w-full max-w-6xl px-6 py-24 md:px-10 lg:px-14">
           <div className="max-w-2xl">
             <motion.div
@@ -84,20 +85,40 @@ export default function Hero() {
                 />
               </a>
             </motion.div>
+            <motion.a
+              {...fadeUp(0.75)}
+              href="#kontakt"
+              className="group mt-10 inline-flex items-center gap-3 text-sm text-white/85 transition hover:text-white"
+            >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--wheat-300)] opacity-70 motion-reduce:hidden" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[color:var(--wheat-300)]" />
+              </span>
+              <MapPin size={16} className="text-[color:var(--wheat-300)]" />
+              <span>
+                <span className="font-semibold text-white">Staszów</span>
+                <span className="mx-2 text-white/50">·</span>
+                <span className="font-semibold text-white">Busko-Zdrój</span>
+                <span className="ml-2 text-white/70 underline-offset-4 group-hover:underline">
+                  — już otwarte
+                </span>
+              </span>
+            </motion.a>
           </div>
         </div>
       </div>
       <WheatParticles />
       <motion.div
         style={{ opacity: indicatorOpacity }}
-        className="pointer-events-none absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 sm:block"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2 text-white/60"
         >
-          <span className="text-[10px] uppercase tracking-[0.3em]">scroll</span>
+          <span className="text-[10px] uppercase tracking-[0.3em]">przewiń</span>
           <ChevronDown size={20} strokeWidth={1.4} />
         </motion.div>
       </motion.div>
