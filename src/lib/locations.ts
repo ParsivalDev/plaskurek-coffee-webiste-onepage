@@ -12,6 +12,13 @@ export type Location = {
 export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61586080679602";
 export const CONTACT_EMAIL = "plaskurekcoffee@o2.pl";
 
+/** Godziny otwarcia — takie same w obu piekarniach. */
+const OPENING_HOURS: Location["hours"] = [
+  { days: "Pn–Pt", time: "6:30 – 20:00" },
+  { days: "Sob", time: "8:00 – 20:00" },
+  { days: "Nd", time: "9:00 – 20:00" },
+];
+
 export const locations: Location[] = [
   {
     id: "staszow",
@@ -19,11 +26,7 @@ export const locations: Location[] = [
     street: "ul. 11 Listopada 59a",
     postalCode: "28-200",
     mapsQuery: "11 Listopada 59a, 28-200 Staszów",
-    hours: [
-      { days: "Pn–Pt", time: "6:30 – 20:00" },
-      { days: "Sob", time: "8:00 – 20:00" },
-      { days: "Nd", time: "9:00 – 20:00" },
-    ],
+    hours: OPENING_HOURS,
   },
   {
     id: "busko-zdroj",
@@ -31,7 +34,7 @@ export const locations: Location[] = [
     street: "ul. Ludwika Waryńskiego 33A",
     postalCode: "28-100",
     mapsQuery: "Ludwika Waryńskiego 33A, 28-100 Busko-Zdrój",
-    hours: null,
+    hours: OPENING_HOURS,
   },
 ];
 
